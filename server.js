@@ -3,8 +3,6 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-
-
 const app = express();
 app.use(express.json());
 
@@ -17,11 +15,12 @@ app.use(cors({
   ]
 }));
 
+// ✅ UPDATED: Correct date and Zoom link
 const WEBINAR_DETAILS = {
   title: "Transforming Customer Experience with AI-Powered Contact Center Solutions",
-  date: "Thursday, May 15th, 2026",
+  date: "Thursday, April 30th, 2026",  // ← UPDATED from May 15th to April 30th
   time: "11:00 AM - 12:30 PM (WAT)",
-  zoomLink: "https://us06web.zoom.us/j/1234567890?pwd=your_password_here",
+  zoomLink: "https://us06web.zoom.us/j/82986785755",  // ← UPDATED with your actual Zoom link
 };
 
 app.get("/", (req, res) => {
@@ -126,7 +125,7 @@ app.post("/webinar/register", async (req, res) => {
     await transporter.sendMail({
       from: `"${process.env.ZOHO_FROM_NAME}" <${process.env.ZOHO_FROM_EMAIL}>`,
       to: email,
-      subject: `Webinar Registration Confirmed: ${WEBINAR_DETAILS.title}`,
+      subject: `✅ You're Registered! ${WEBINAR_DETAILS.title}`,
       html: `
         <h2>Webinar Registration Confirmed!</h2>
         <p>Dear ${fullName},</p>
