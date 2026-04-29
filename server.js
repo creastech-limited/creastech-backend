@@ -18,7 +18,7 @@ app.use(cors({
 // ✅ UPDATED: Correct date and Zoom link
 const WEBINAR_DETAILS = {
   title: "Transforming Customer Experience with AI-Powered Contact Center Solutions",
-  date: "Thursday, April 30th, 2026",  // ← UPDATED from May 15th to April 30th
+  date: "Thursday, May 7th, 2026",  // ← UPDATED from April 7th to May 7th
   time: "11:00 AM - 12:30 PM (WAT)",
   zoomLink: "https://us06web.zoom.us/j/82986785755",  // ← UPDATED with your actual Zoom link
 };
@@ -32,7 +32,7 @@ const getTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.ZOHO_SMTP_HOST,
     port: Number(process.env.ZOHO_SMTP_PORT),
-    secure: Number(process.env.ZOHO_SMTP_PORT) === 465,
+    secure: true,  // ← CHANGE to true for port 465
     auth: {
       user: process.env.ZOHO_EMAIL,
       pass: process.env.ZOHO_PASSWORD,
